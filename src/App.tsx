@@ -18,7 +18,8 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       {/* it is not working without CssBaseline */}
       <CssBaseline /> 
-      <main>This app is using the dark mode</main>
+      <p>This app is using the dark mode hard code via darkTheme </p>
+      <p>you can replace to light mode in code via lightTheme</p>
     </ThemeProvider>
   );
 }
