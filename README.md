@@ -22,12 +22,19 @@ The theme is handled via ThemeProvider which is imported from @mui/material/styl
 
 ```typescript
 function App() {
+  const [createdTheme, setCreatedTheme] = useState(darkTheme);
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={createdTheme}>
       {/* it is not working without CssBaseline */}
       <CssBaseline />
-      <p>This app is using the dark mode hard code via darkTheme </p>
-      <p>you can replace to light mode in code via lightTheme</p>
+      <Button
+        onClick={() =>
+          setCreatedTheme(createdTheme === darkTheme ? lightTheme : darkTheme)
+        }
+        variant="contained"
+      >
+        Toggle Theme
+      </Button>
     </ThemeProvider>
   );
 }

@@ -1,16 +1,23 @@
-import { ThemeProvider} from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { darkTheme } from "./themes";
-
-
+import { Button } from "@mui/material";
+import { darkTheme, lightTheme } from "./themes";
+import { useState } from "react";
 
 function App() {
+  const [createdTheme, setCreatedTheme] = useState(darkTheme);
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={createdTheme}>
       {/* it is not working without CssBaseline */}
-      <CssBaseline /> 
-      <p>This app is using the dark mode hard code via darkTheme </p>
-      <p>you can replace to light mode in code via lightTheme</p>
+      <CssBaseline />
+      <Button
+        onClick={() =>
+          setCreatedTheme(createdTheme === darkTheme ? lightTheme : darkTheme)
+        }
+        variant="contained"
+      >
+        Toggle Theme
+      </Button>
     </ThemeProvider>
   );
 }
